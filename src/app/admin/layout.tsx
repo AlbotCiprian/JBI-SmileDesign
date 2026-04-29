@@ -1,12 +1,8 @@
-import { auth, signOut } from "@/auth";
+import { auth } from "@/auth";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  LayoutDashboard,
-  Calendar,
-  LogOut,
-  Home,
-} from "lucide-react";
+import { LayoutDashboard, Calendar, Home } from "lucide-react";
+import { LogoutButton } from "./_components/LogoutButton";
 
 export default async function AdminLayout({
   children,
@@ -55,20 +51,9 @@ export default async function AdminLayout({
             <p className="truncate text-sm font-semibold text-jbi-navy">
               {session.user.email ?? session.user.name}
             </p>
-            <form
-              action={async () => {
-                "use server";
-                await signOut({ redirectTo: "/admin/login" });
-              }}
-              className="mt-3"
-            >
-              <button
-                type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-jbi-navy/10 bg-white px-3 py-2 text-xs font-semibold text-jbi-navy transition-colors hover:bg-jbi-soft"
-              >
-                <LogOut className="h-3.5 w-3.5" /> Deconectare
-              </button>
-            </form>
+            <div className="mt-3">
+              <LogoutButton />
+            </div>
           </div>
         </aside>
 

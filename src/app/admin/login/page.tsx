@@ -73,7 +73,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-jbi-electric focus:outline-none focus:ring-2 focus:ring-jbi-electric/30"
-                placeholder="admin@jbismiledesign.md"
+                placeholder="adresa@email.com"
               />
             </div>
 
