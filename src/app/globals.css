@@ -10,6 +10,12 @@
     @apply bg-white text-jbi-ink antialiased;
     font-feature-settings: "ss01", "cv11";
   }
+  /* Padding extra jos pe mobile ca să nu fie acoperit conținutul de bara CTA sticky. */
+  @media (max-width: 1023px) {
+    main {
+      padding-bottom: 5rem;
+    }
+  }
   ::selection {
     @apply bg-jbi-electric/20 text-jbi-navy;
   }

@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { sendAppointmentEmails } from "@/lib/resend";
 import { verifyRecaptcha } from "@/lib/recaptcha";
 import { appointmentSchema } from "@/lib/validations";
+import { isSlotAvailable } from "@/lib/availability";
 
 export const runtime = "nodejs";
 
@@ -39,20 +40,35 @@ export async function POST(req: Request) {
     );
   }
 
+  // Verificare server-side: slot încă disponibil? (anti-race-condition)
+  const stillAvailable = await isSlotAvailable(data.preferredDate, data.preferredTime);
+  if (!stillAvailable) {
+    return NextResponse.json(
+      {
+        error:
+          "Acest interval tocmai a fost rezervat de altcineva. Te rugăm să alegi un alt interval.",
+      },
+      { status: 409 },
+    );
+  }
+
   try {
+    // Stocăm preferredDate ca dată locală (00:00). Ora rămâne separat.
+    const dateOnly = new Date(`${data.preferredDate}T00:00:00`);
+
     const appointment = await prisma.appointment.create({
       data: {
         fullName: data.fullName,
         phone: data.phone,
         email: data.email ?? null,
         service: data.service,
-        preferredDate: new Date(data.preferredDate),
-        preferredTime: data.preferredTime ?? null,
+        preferredDate: dateOnly,
+        preferredTime: data.preferredTime,
         message: data.message ?? null,
       },
     });
 
-    // Trimitem emailurile dar nu blocăm răspunsul dacă eșuează — programarea e deja salvată.
+    // Trimitem emailurile dar nu blocăm răspunsul dacă eșuează.
     try {
       await sendAppointmentEmails({
         fullName: appointment.fullName,

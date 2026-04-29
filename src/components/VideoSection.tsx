@@ -16,7 +16,7 @@ const reels: { src: string; alt: string }[] = [
 
 export function VideoSection() {
   return (
-    <section id="video" className="relative bg-jbi-navy py-20 text-white sm:py-28">
+    <section id="video" className="relative bg-jbi-navy py-16 text-white sm:py-28">
       <div className="container-x">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <motion.div

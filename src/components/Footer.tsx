@@ -95,6 +95,17 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center">
           <p>© {year} JBI Smile Design. Toate drepturile rezervate.</p>
+          <p>
+            Developed by{" "}
+            <a
+              href="https://xelaktech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-jbi-champagne transition-colors hover:text-white"
+            >
+              Xelak Technology
+            </a>
+          </p>
           <div className="flex gap-5">
             <Link href="#" className="hover:text-white">Privacy Policy</Link>
             <Link href="#" className="hover:text-white">Cookie Policy</Link>

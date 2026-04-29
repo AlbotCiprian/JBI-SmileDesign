@@ -7,7 +7,7 @@ import { AppointmentForm } from "./AppointmentForm";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative bg-jbi-soft/30 py-20 sm:py-28">
+    <section id="contact" className="relative bg-jbi-soft/30 py-16 sm:py-28">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Contact</span>

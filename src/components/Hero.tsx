@@ -10,12 +10,12 @@ const badgeIcons = [MapPin, Languages, Clock, Stethoscope];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-hero-radial pt-28 sm:pt-32 lg:pt-36">
+    <section className="relative overflow-hidden bg-hero-radial pt-24 sm:pt-32 lg:pt-36">
       {/* Soft background blobs */}
       <div className="pointer-events-none absolute -left-20 top-32 h-72 w-72 rounded-full bg-jbi-soft blur-3xl" />
       <div className="pointer-events-none absolute -right-24 top-10 h-80 w-80 rounded-full bg-jbi-electric/10 blur-3xl" />
 
-      <div className="container-x relative grid items-center gap-12 pb-24 lg:grid-cols-12 lg:gap-10 lg:pb-32">
+      <div className="container-x relative grid items-center gap-10 pb-20 sm:gap-12 sm:pb-24 lg:grid-cols-12 lg:gap-10 lg:pb-32">
         {/* Text column */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -25,18 +25,18 @@ export function Hero() {
         >
           <span className="eyebrow">Clinică stomatologică · Chișinău</span>
 
-          <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-jbi-navy sm:text-5xl lg:text-[3.75rem]">
+          <h1 className="mt-4 font-display text-[2.25rem] font-semibold leading-[1.1] tracking-tight text-jbi-navy sm:text-5xl lg:text-[3.75rem]">
             <span className="block">{clinic.name} —</span>
             <span className="block bg-gradient-to-r from-jbi-blue to-jbi-electric bg-clip-text text-transparent">
               zâmbetul tău, creat cu grijă și precizie
             </span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-jbi-navy/70 sm:text-lg">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-jbi-navy/70 sm:mt-6 sm:text-lg">
             {clinic.shortDescription}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
             <Link href="#programare" className="btn-primary">
               Programează o consultație
             </Link>
@@ -51,7 +51,7 @@ export function Hero() {
             </a>
           </div>
 
-          <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-4">
             {trustBadges.map((b, i) => {
               const Icon = badgeIcons[i] ?? MapPin;
               return (

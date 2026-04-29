@@ -13,7 +13,7 @@ const features = [
 
 export function AboutClinic() {
   return (
-    <section id="despre" className="relative overflow-hidden bg-jbi-soft/40 py-20 sm:py-28">
+    <section id="despre" className="relative overflow-hidden bg-jbi-soft/40 py-16 sm:py-28">
       <div className="container-x">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <motion.div

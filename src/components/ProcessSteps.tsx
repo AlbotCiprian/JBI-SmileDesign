@@ -5,7 +5,7 @@ import { processSteps } from "@/lib/data";
 
 export function ProcessSteps() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-jbi-soft/30 to-white py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-jbi-soft/30 to-white py-16 sm:py-28">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Procesul nostru</span>

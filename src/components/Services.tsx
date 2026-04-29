@@ -8,7 +8,7 @@ import { ServiceIconBySlug } from "./ServiceIcons";
 
 export function Services() {
   return (
-    <section id="servicii" className="relative bg-white py-20 sm:py-28">
+    <section id="servicii" className="relative bg-white py-16 sm:py-28">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Servicii</span>

@@ -13,7 +13,7 @@ const trustPoints = [
 
 export function TeamTrust() {
   return (
-    <section id="echipa" className="relative bg-white py-20 sm:py-28">
+    <section id="echipa" className="relative bg-white py-16 sm:py-28">
       <div className="container-x">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <motion.div
