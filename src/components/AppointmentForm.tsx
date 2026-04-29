@@ -8,6 +8,7 @@ import { CheckCircle2, AlertCircle, Loader2, Calendar, Clock, User, Phone, Mail,
 import { appointmentSchema, type AppointmentInput } from "@/lib/validations";
 import { services } from "@/lib/data";
 import { cn } from "@/lib/cn";
+import { useRecaptchaScript, executeRecaptcha } from "@/lib/recaptcha-client";
 
 type SubmitState =
   | { kind: "idle" }
@@ -17,6 +18,7 @@ type SubmitState =
 
 export function AppointmentForm() {
   const [state, setState] = useState<SubmitState>({ kind: "idle" });
+  useRecaptchaScript();
 
   const {
     register,
@@ -32,15 +34,14 @@ export function AppointmentForm() {
   const onSubmit = handleSubmit(async (data) => {
     setState({ kind: "loading" });
 
-    // TODO Faza 3: dacă NEXT_PUBLIC_RECAPTCHA_SITE_KEY e setată, încarcă scriptul
-    // și generează token aici cu grecaptcha.execute(siteKey, { action: 'appointment' }).
-    // Pentru moment trimitem fără token; backend-ul sare verificarea dacă secret-ul lipsește.
+    // reCAPTCHA Enterprise — generează token; dacă site-key lipsește, returnează null.
+    const recaptchaToken = await executeRecaptcha("appointment");
 
     try {
       const res = await fetch("/api/appointment", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       });
 
       if (!res.ok) {
