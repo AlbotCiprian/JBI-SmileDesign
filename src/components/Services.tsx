@@ -1,25 +1,25 @@
 "use client";
 
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { services } from "@/lib/data";
 import { ServiceIconBySlug } from "./ServiceIcons";
+import { localizedHref, type Locale } from "@/i18n/routing";
+import type { ServiceMessage } from "@/i18n/messages";
 
 export function Services() {
+  const t = useTranslations("services");
+  const locale = useLocale() as Locale;
+  const services = t.raw("items") as ServiceMessage[];
+
   return (
     <section id="servicii" className="relative bg-white py-16 sm:py-28">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Servicii</span>
-          <h2 className="section-title mt-4">
-            Tratamente complete pentru întreaga familie
-          </h2>
-          <p className="mt-4 text-base text-jbi-navy/65 sm:text-lg">
-            De la prevenție și tratamente de bază, până la implantologie și estetică
-            dentară — totul într-un singur loc, cu plan personalizat pentru fiecare
-            pacient.
-          </p>
+          <span className="eyebrow">{t("eyebrow")}</span>
+          <h2 className="section-title mt-4">{t("title")}</h2>
+          <p className="mt-4 text-base text-jbi-navy/65 sm:text-lg">{t("description")}</p>
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -38,21 +38,15 @@ export function Services() {
                 <div className="relative h-24 w-24 transition-transform duration-500 group-hover:scale-105">
                   {Icon ? <Icon className="h-full w-full" /> : null}
                 </div>
-
-                <h3 className="mt-5 font-display text-xl font-semibold text-jbi-navy">
-                  {s.title}
-                </h3>
+                <h3 className="mt-5 font-display text-xl font-semibold text-jbi-navy">{s.title}</h3>
                 <p className="mt-1 text-sm font-medium text-jbi-blue">{s.short}</p>
-                <p className="mt-3 text-sm leading-relaxed text-jbi-navy/65">
-                  {s.description}
-                </p>
-
+                <p className="mt-3 text-sm leading-relaxed text-jbi-navy/65">{s.description}</p>
                 <div className="mt-6 flex items-center justify-between border-t border-jbi-navy/5 pt-4">
                   <Link
-                    href={`#programare`}
+                    href={localizedHref(locale, "#programare")}
                     className="text-sm font-semibold text-jbi-blue transition-colors hover:text-jbi-electric"
                   >
-                    Programează-te
+                    {t("schedule")}
                   </Link>
                   <span
                     className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-jbi-soft text-jbi-blue transition-all group-hover:bg-jbi-blue group-hover:text-white"

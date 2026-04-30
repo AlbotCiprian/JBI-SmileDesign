@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   CheckCircle2,
@@ -18,10 +19,15 @@ import {
   Send,
   Info,
 } from "lucide-react";
-import { appointmentSchema, type AppointmentInput } from "@/lib/validations";
-import { services } from "@/lib/data";
+import {
+  createAppointmentSchema,
+  type AppointmentInput,
+  type AppointmentValidationMessages,
+} from "@/lib/validations";
 import { cn } from "@/lib/cn";
 import { useRecaptchaScript, executeRecaptcha } from "@/lib/recaptcha-client";
+import type { ServiceMessage } from "@/i18n/messages";
+import { localizedHref, type Locale } from "@/i18n/routing";
 
 type SubmitState =
   | { kind: "idle" }
@@ -37,6 +43,12 @@ type AvailabilityState =
   | { kind: "error" };
 
 export function AppointmentForm() {
+  const t = useTranslations("appointment");
+  const servicesT = useTranslations("services");
+  const locale = useLocale() as Locale;
+  const services = servicesT.raw("items") as ServiceMessage[];
+  const validationMessages = t.raw("validation") as AppointmentValidationMessages;
+  const schema = useMemo(() => createAppointmentSchema(validationMessages), [validationMessages]);
   const [state, setState] = useState<SubmitState>({ kind: "idle" });
   const [availability, setAvailability] = useState<AvailabilityState>({ kind: "idle" });
   useRecaptchaScript();
@@ -50,15 +62,18 @@ export function AppointmentForm() {
     setValue,
     formState: { errors },
   } = useForm<AppointmentInput>({
-    resolver: zodResolver(appointmentSchema),
-    defaultValues: { gdpr: false as unknown as true, preferredTime: "" },
+    resolver: zodResolver(schema),
+    defaultValues: { gdpr: false as unknown as true, preferredTime: "", locale },
     mode: "onBlur",
   });
 
   const selectedDate = watch("preferredDate");
   const selectedTime = watch("preferredTime");
 
-  // Când se schimbă data, resetăm ora aleasă și fetch-uim disponibilitatea.
+  useEffect(() => {
+    setValue("locale", locale);
+  }, [locale, setValue]);
+
   useEffect(() => {
     if (!selectedDate || !/^\d{4}-\d{2}-\d{2}$/.test(selectedDate)) {
       setAvailability({ kind: "idle" });
@@ -102,18 +117,12 @@ export function AppointmentForm() {
       const res = await fetch("/api/appointment", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...data, recaptchaToken }),
+        body: JSON.stringify({ ...data, locale, recaptchaToken }),
       });
 
       if (!res.ok) {
         const body = (await res.json().catch(() => ({}))) as { error?: string };
-        setState({
-          kind: "error",
-          message:
-            body.error ??
-            "A apărut o eroare. Te rugăm să încerci din nou sau să ne contactezi telefonic.",
-        });
-        // Dacă slot-ul a fost luat între timp, refresh la availability.
+        setState({ kind: "error", message: body.error ?? t("genericError") });
         if (res.status === 409 && selectedDate) {
           setAvailability({ kind: "loading" });
           const av = await fetch(`/api/availability?date=${selectedDate}`).then((r) => r.json());
@@ -128,13 +137,10 @@ export function AppointmentForm() {
       }
 
       setState({ kind: "success" });
-      reset();
+      reset({ gdpr: false as unknown as true, preferredTime: "", locale });
       setAvailability({ kind: "idle" });
     } catch {
-      setState({
-        kind: "error",
-        message: "Nu ne-am putut conecta la server. Încearcă din nou.",
-      });
+      setState({ kind: "error", message: t("networkError") });
     }
   });
 
@@ -155,17 +161,11 @@ export function AppointmentForm() {
               <CheckCircle2 className="h-8 w-8" />
             </span>
             <h3 className="mt-5 font-display text-2xl font-semibold text-jbi-navy">
-              Mulțumim! Cererea ta a fost trimisă.
+              {t("successTitle")}
             </h3>
-            <p className="mt-2 max-w-md text-sm text-jbi-navy/65">
-              Echipa JBI Smile Design te va contacta în cel mai scurt timp pentru
-              a confirma ora exactă a programării.
-            </p>
-            <button
-              onClick={() => setState({ kind: "idle" })}
-              className="btn-secondary mt-6"
-            >
-              Trimite altă cerere
+            <p className="mt-2 max-w-md text-sm text-jbi-navy/65">{t("successText")}</p>
+            <button onClick={() => setState({ kind: "idle" })} className="btn-secondary mt-6">
+              {t("another")}
             </button>
           </motion.div>
         ) : (
@@ -179,57 +179,52 @@ export function AppointmentForm() {
             className="grid gap-4 sm:gap-5"
           >
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-              <Field label="Nume complet" error={errors.fullName?.message} icon={User} required>
+              <Field label={t("fields.fullName")} error={errors.fullName?.message} icon={User} required>
                 <input
                   type="text"
                   autoComplete="name"
-                  placeholder="ex. Ana Popescu"
+                  placeholder={t("placeholders.fullName")}
                   {...register("fullName")}
                   className={inputCls(!!errors.fullName)}
                 />
               </Field>
 
-              <Field label="Telefon" error={errors.phone?.message} icon={Phone} required>
+              <Field label={t("fields.phone")} error={errors.phone?.message} icon={Phone} required>
                 <input
                   type="tel"
                   autoComplete="tel"
-                  placeholder="+373 ..."
+                  placeholder={t("placeholders.phone")}
                   {...register("phone")}
                   className={inputCls(!!errors.phone)}
                 />
               </Field>
             </div>
 
-            <Field
-              label="Email"
-              error={errors.email?.message}
-              icon={Mail}
-              hint="Opțional — pentru confirmarea programării"
-            >
+            <Field label={t("fields.email")} error={errors.email?.message} icon={Mail} hint={t("hints.email")}>
               <input
                 type="email"
                 autoComplete="email"
-                placeholder="email@exemplu.com"
+                placeholder={t("placeholders.email")}
                 {...register("email")}
                 className={inputCls(!!errors.email)}
               />
             </Field>
 
-            <Field label="Serviciu dorit" error={errors.service?.message} icon={Stethoscope} required>
+            <Field label={t("fields.service")} error={errors.service?.message} icon={Stethoscope} required>
               <select {...register("service")} className={inputCls(!!errors.service)} defaultValue="">
                 <option value="" disabled>
-                  Alege un serviciu
+                  {t("placeholders.selectService")}
                 </option>
                 {services.map((s) => (
                   <option key={s.slug} value={s.title}>
                     {s.title}
                   </option>
                 ))}
-                <option value="Altceva / Nu sunt sigur">Altceva / Nu sunt sigur</option>
+                <option value={servicesT("other")}>{servicesT("other")}</option>
               </select>
             </Field>
 
-            <Field label="Data preferată" error={errors.preferredDate?.message} icon={Calendar} required>
+            <Field label={t("fields.date")} error={errors.preferredDate?.message} icon={Calendar} required>
               <input
                 type="date"
                 min={today}
@@ -238,11 +233,10 @@ export function AppointmentForm() {
               />
             </Field>
 
-            {/* Slot picker live */}
             <div>
               <span className="mb-1.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-jbi-navy/60">
                 <Clock className="h-3.5 w-3.5 text-jbi-blue" />
-                Ora preferată <span className="text-jbi-blue">*</span>
+                {t("fields.time")} <span className="text-jbi-blue">*</span>
               </span>
 
               <Controller
@@ -253,22 +247,20 @@ export function AppointmentForm() {
                     state={availability}
                     selectedDate={selectedDate}
                     selectedTime={field.value}
-                    onSelect={(t) => field.onChange(t)}
+                    onSelect={(slot) => field.onChange(slot)}
                   />
                 )}
               />
 
               {errors.preferredTime?.message && (
-                <p className="mt-2 text-xs font-medium text-red-600">
-                  {errors.preferredTime.message}
-                </p>
+                <p className="mt-2 text-xs font-medium text-red-600">{errors.preferredTime.message}</p>
               )}
             </div>
 
-            <Field label="Mesaj" error={errors.message?.message} icon={MessageSquare} hint="Opțional">
+            <Field label={t("fields.message")} error={errors.message?.message} icon={MessageSquare} hint={t("hints.message")}>
               <textarea
                 rows={3}
-                placeholder="Detalii suplimentare, dureri, întrebări..."
+                placeholder={t("placeholders.message")}
                 {...register("message")}
                 className={cn(inputCls(!!errors.message), "min-h-[88px] resize-y")}
               />
@@ -281,12 +273,10 @@ export function AppointmentForm() {
                 className="mt-1 h-4 w-4 rounded border-jbi-navy/20 text-jbi-blue focus:ring-jbi-blue"
               />
               <span className="text-xs text-jbi-navy/70">
-                Sunt de acord cu prelucrarea datelor personale conform{" "}
-                <a href="#" className="font-semibold text-jbi-blue underline">
-                  Politicii de Confidențialitate
+                {t("gdpr")}{" "}
+                <a href={localizedHref(locale, "/privacy-policy")} className="font-semibold text-jbi-blue underline">
+                  {t("privacyPolicy")}
                 </a>
-                . Datele sunt folosite exclusiv pentru contactarea mea în legătură cu
-                programarea.
               </span>
             </label>
             {errors.gdpr?.message && (
@@ -307,18 +297,16 @@ export function AppointmentForm() {
             >
               {state.kind === "loading" ? (
                 <>
-                  <Loader2 className="h-4 w-4 animate-spin" /> Se trimite...
+                  <Loader2 className="h-4 w-4 animate-spin" /> {t("submitting")}
                 </>
               ) : (
                 <>
-                  <Send className="h-4 w-4" /> Trimite programarea
+                  <Send className="h-4 w-4" /> {t("submit")}
                 </>
               )}
             </button>
 
-            <p className="text-xs text-jbi-navy/40">
-              Programarea va fi confirmată telefonic de echipa noastră.
-            </p>
+            <p className="text-xs text-jbi-navy/40">{t("afterSubmit")}</p>
           </motion.form>
         )}
       </AnimatePresence>
@@ -337,11 +325,13 @@ function SlotPicker({
   selectedTime: string;
   onSelect: (time: string) => void;
 }) {
+  const t = useTranslations("appointment");
+
   if (!selectedDate) {
     return (
       <div className="flex items-center gap-2 rounded-xl border border-dashed border-jbi-navy/15 bg-jbi-soft/30 px-4 py-5 text-sm text-jbi-navy/60">
         <Info className="h-4 w-4 text-jbi-blue" />
-        Alege mai întâi data, apoi vei vedea intervalele orare disponibile.
+        {t("slotPickDate")}
       </div>
     );
   }
@@ -350,7 +340,7 @@ function SlotPicker({
     return (
       <div className="flex items-center gap-2 rounded-xl border border-jbi-navy/10 bg-white px-4 py-5 text-sm text-jbi-navy/60">
         <Loader2 className="h-4 w-4 animate-spin text-jbi-blue" />
-        Verificăm disponibilitatea...
+        {t("slotLoading")}
       </div>
     );
   }
@@ -359,7 +349,7 @@ function SlotPicker({
     return (
       <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
         <AlertCircle className="h-4 w-4" />
-        Nu am putut verifica disponibilitatea. Reîncearcă peste câteva secunde.
+        {t("slotError")}
       </div>
     );
   }
@@ -368,7 +358,7 @@ function SlotPicker({
     return (
       <div className="flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
         <Info className="h-4 w-4" />
-        {state.closedReason ?? "Clinica este închisă în această zi"}
+        {state.closedReason ?? t("closedFallback")}
       </div>
     );
   }
@@ -376,7 +366,7 @@ function SlotPicker({
   if (state.slots.length === 0) {
     return (
       <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-        Nu există intervale orare disponibile pentru această zi.
+        {t("noSlots")}
       </div>
     );
   }
@@ -398,8 +388,8 @@ function SlotPicker({
                 isSelected
                   ? "border-jbi-blue bg-jbi-blue text-white shadow-soft"
                   : slot.available
-                  ? "border-jbi-navy/10 bg-white text-jbi-navy hover:border-jbi-blue hover:bg-jbi-soft/50"
-                  : "cursor-not-allowed border-jbi-navy/5 bg-jbi-navy/5 text-jbi-navy/30 line-through",
+                    ? "border-jbi-navy/10 bg-white text-jbi-navy hover:border-jbi-blue hover:bg-jbi-soft/50"
+                    : "cursor-not-allowed border-jbi-navy/5 bg-jbi-navy/5 text-jbi-navy/30 line-through",
               )}
             >
               {slot.time}
@@ -409,7 +399,7 @@ function SlotPicker({
       </div>
       <p className="flex items-center gap-2 text-xs text-jbi-navy/50">
         <span className="inline-block h-2.5 w-2.5 rounded bg-jbi-navy/20" />
-        Indisponibil — interval ocupat sau prea apropiat de altă programare
+        {t("unavailableLegend")}
       </p>
     </div>
   );

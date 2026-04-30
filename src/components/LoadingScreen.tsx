@@ -2,8 +2,10 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export function LoadingScreen() {
+  const t = useTranslations("loading");
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -117,7 +119,7 @@ export function LoadingScreen() {
                 </span>
               </p>
               <p className="mt-2 text-[10px] uppercase tracking-[0.4em] text-white/50 sm:text-xs">
-                Stomatologie premium · Chișinău
+                {t("subtitle")}
               </p>
             </motion.div>
 

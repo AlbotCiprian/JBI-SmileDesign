@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import Link from "next/link";
 import Image from "next/image";
-import { LayoutDashboard, Calendar, Home } from "lucide-react";
+import { LayoutDashboard, Calendar, Home, Users } from "lucide-react";
 import { LogoutButton } from "./_components/LogoutButton";
 
 export default async function AdminLayout({
@@ -43,6 +43,7 @@ export default async function AdminLayout({
           <nav className="flex gap-1 px-3 py-3 lg:flex-col lg:py-5">
             <NavLink href="/admin" Icon={LayoutDashboard}>Dashboard</NavLink>
             <NavLink href="/admin#programari" Icon={Calendar}>Programări</NavLink>
+            <NavLink href="/admin/clienti" Icon={Users}>Clienți</NavLink>
             <NavLink href="/" Icon={Home}>Vezi site-ul</NavLink>
           </nav>
 

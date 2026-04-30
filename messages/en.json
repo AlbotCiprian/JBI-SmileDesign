@@ -1,0 +1,211 @@
+{
+  "metadata": {
+    "title": "JBI Smile Design | Dental clinic in Chisinau",
+    "description": "Modern dental clinic in Chisinau. Dental therapy, endodontics, orthodontics, implantology, prosthetics and cosmetic dentistry.",
+    "ogDescription": "Complete dental services in Chisinau. Fast appointments, communication in RO / EN / RU.",
+    "keywords": ["dentist Chisinau", "dental clinic", "dental implant", "orthodontics Chisinau", "cosmetic dentistry", "JBI Smile Design"]
+  },
+  "clinic": {
+    "name": "JBI Smile Design",
+    "tagline": "Your smile, designed with care and precision",
+    "shortDescription": "A modern dental clinic in Chisinau with complete services, clear communication and personalized treatments for every patient.",
+    "footerDescription": "A modern dental clinic in Chisinau. Complete treatments, clear communication and a comfortable experience for every patient.",
+    "addressFull": "Grenoble 257, Chisinau, Moldova, 2072",
+    "addressStreet": "Grenoble 257",
+    "addressCity": "Chisinau",
+    "languages": "Romanian · English · Russian",
+    "whatsappText": "Hello! I would like to book a consultation at JBI Smile Design."
+  },
+  "nav": {
+    "items": [
+      { "href": "#acasa", "label": "Home" },
+      { "href": "#servicii", "label": "Services" },
+      { "href": "#despre", "label": "About" },
+      { "href": "#echipa", "label": "Team" },
+      { "href": "#recenzii", "label": "Reviews" },
+      { "href": "#video", "label": "Video" },
+      { "href": "#contact", "label": "Contact" }
+    ],
+    "book": "Book now",
+    "bookConsultation": "Book a consultation",
+    "callNow": "Call now",
+    "call": "Call",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "whatsapp": "Message on WhatsApp",
+    "language": "Language"
+  },
+  "hero": {
+    "eyebrow": "Dental clinic · Chisinau",
+    "rating": "Happy patients, clear communication and comfort at every visit.",
+    "reviews": "Google reviews · JBI Smile Design",
+    "quickContact": "Quick contact",
+    "imageAlt": "JBI Smile Design clinic reception",
+    "trustBadges": ["Grenoble 257, Chisinau", "RO / EN / RU", "Fast appointments", "Complete services"]
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Complete treatments for the whole family",
+    "description": "From prevention and basic treatments to implantology and cosmetic dentistry — everything in one place, with a personalized plan for every patient.",
+    "schedule": "Book now",
+    "other": "Other / Not sure",
+    "items": [
+      { "slug": "terapie-dentara", "title": "Dental therapy", "short": "Cavity treatment", "description": "Precise cavity diagnosis and durable aesthetic restorations with high-quality materials." },
+      { "slug": "endodontie", "title": "Endodontics", "short": "Root canal treatment", "description": "Modern endodontic treatments under magnification to preserve the natural tooth." },
+      { "slug": "ortodontie", "title": "Orthodontics", "short": "Dental braces", "description": "Fixed and removable braces, plus clear aligners for a balanced smile." },
+      { "slug": "implantologie", "title": "Dental implantology", "short": "Implant + crown", "description": "Complete implant solutions with digital planning and comfortable recovery." },
+      { "slug": "protetica", "title": "Dental prosthetics", "short": "Crowns, bridges, veneers", "description": "Aesthetic and functional prosthetic restorations made with modern technologies." },
+      { "slug": "parodontologie", "title": "Periodontal treatments", "short": "Gum health", "description": "Prevention and treatment of periodontal disease for healthy gums long term." },
+      { "slug": "pediatrica", "title": "Pediatric dentistry", "short": "For children", "description": "A gentle and friendly approach for children in a calm, safe environment." },
+      { "slug": "estetica", "title": "Cosmetic dentistry", "short": "Whitening & veneers", "description": "Professional whitening, ceramic veneers and aesthetic treatments for a bright smile." }
+    ]
+  },
+  "about": {
+    "eyebrow": "About the clinic",
+    "title": "Modern dentistry built around the patient",
+    "text": "JBI Smile Design is a dental clinic in Chisinau created for patients who want modern treatments, clear communication and a comfortable medical experience. We focus on accurate diagnosis, personalized treatment and a relationship of trust with every patient.",
+    "imageAlt": "JBI Smile Design clinic interior",
+    "focusNumber": "100%",
+    "focusLabel": "Patient focus",
+    "features": [
+      { "title": "Personalized approach", "text": "A plan tailored to every patient." },
+      { "title": "Modern and clean space", "text": "High hygiene standards." },
+      { "title": "RO / EN / RU communication", "text": "We speak your language." },
+      { "title": "Family solutions", "text": "From children to adults." }
+    ]
+  },
+  "team": {
+    "eyebrow": "Team & trust",
+    "title": "A team close to the patient",
+    "text": "At JBI Smile Design, every patient receives clear explanations, attentive treatment and support at every stage. We want each visit to feel calm and clear — from diagnosis to care recommendations.",
+    "imageAlt": "JBI Smile Design team at reception",
+    "points": [
+      { "title": "Clear communication", "text": "Explanations you can understand at every step." },
+      { "title": "Comfort-first care", "text": "Modern techniques for treatments with minimal discomfort." },
+      { "title": "Personalized plan", "text": "A treatment plan adapted to your needs." },
+      { "title": "Adults and children", "text": "Treatments for the whole family." }
+    ]
+  },
+  "process": {
+    "eyebrow": "Our process",
+    "title": "The consultation steps",
+    "description": "From the first contact to final recommendations, every step is designed to be clear, comfortable and transparent.",
+    "steps": [
+      { "n": 1, "title": "Contact and booking", "text": "You message or call us — we choose a suitable time together." },
+      { "n": 2, "title": "Initial consultation", "text": "We discuss your needs, expectations and dental history." },
+      { "n": 3, "title": "Diagnosis and analysis", "text": "Clinical and imaging examination for an accurate diagnosis." },
+      { "n": 4, "title": "Treatment plan", "text": "We present a personalized plan with clear options and costs." },
+      { "n": 5, "title": "Treatment", "text": "Comfortable steps with explanations throughout the process." },
+      { "n": 6, "title": "Recommendations and follow-up", "text": "Care instructions and regular checkups for lasting results." }
+    ]
+  },
+  "video": {
+    "eyebrow": "Video",
+    "title": "See the atmosphere at JBI Smile Design",
+    "description": "A short look inside the clinic — reception, modern rooms and the team that will support you throughout treatment.",
+    "cta": "See our Facebook page",
+    "alt": "JBI Smile Design reel"
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "What our patients say",
+    "description": "Our patients appreciate the professionalism, communication and comfort of their clinic experience.",
+    "googleReview": "Google review",
+    "leaveReview": "Leave a Google review",
+    "previous": "Previous",
+    "next": "Next",
+    "reviewLabel": "Review {index}",
+    "items": [
+      { "name": "Ana M.", "rating": 5, "text": "A very professional team, an impeccable clinic and everything went pain-free. Highly recommended!", "initials": "AM" },
+      { "name": "Victor C.", "rating": 5, "text": "The best dental experience I have had. Clear explanations and excellent results.", "initials": "VC" },
+      { "name": "Elena P.", "rating": 5, "text": "Warm atmosphere and attentive staff. My child was relaxed from the first visit.", "initials": "EP" },
+      { "name": "Dmitri R.", "rating": 5, "text": "Very satisfied with the implantology treatment. Professionalism at the highest level.", "initials": "DR" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Visit the clinic or message us",
+    "description": "We are only one message away. Our team responds quickly and helps you find the best time for an appointment.",
+    "address": "Address",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "viewMap": "View map",
+    "sendEmail": "Send email",
+    "spokenLanguages": "Spoken languages",
+    "mapTitle": "JBI Smile Design map",
+    "appointmentsEyebrow": "Appointments",
+    "appointmentsTitle": "Book a consultation",
+    "appointmentsText": "Fill in the form and our team will contact you as soon as possible to confirm the exact time. Prefer phone? We are available on WhatsApp and by phone.",
+    "scheduleTitle": "Clinic schedule",
+    "scheduleText": "Appointments are confirmed on working days. During the weekend, we respond from Monday morning."
+  },
+  "appointment": {
+    "fields": { "fullName": "Full name", "phone": "Phone", "email": "Email", "service": "Desired service", "date": "Preferred date", "time": "Preferred time", "message": "Message" },
+    "placeholders": { "fullName": "e.g. Ana Popescu", "phone": "+373 ...", "email": "email@example.com", "selectService": "Choose a service", "message": "Additional details, pain, questions..." },
+    "hints": { "email": "Optional — for appointment confirmation", "message": "Optional" },
+    "gdpr": "I agree to the processing of my personal data according to the",
+    "privacyPolicy": "Privacy Policy",
+    "submit": "Send appointment request",
+    "submitting": "Sending...",
+    "afterSubmit": "The appointment will be confirmed by phone by our team.",
+    "successTitle": "Thank you! Your request has been sent.",
+    "successText": "The JBI Smile Design team will contact you shortly to confirm the exact appointment time.",
+    "another": "Send another request",
+    "slotPickDate": "Choose the date first, then you will see available time slots.",
+    "slotLoading": "Checking availability...",
+    "slotError": "We could not check availability. Please try again in a few seconds.",
+    "closedFallback": "The clinic is closed on this day",
+    "noSlots": "There are no available time slots for this day.",
+    "unavailableLegend": "Unavailable — occupied slot or too close to another appointment",
+    "networkError": "We could not connect to the server. Please try again.",
+    "genericError": "An error occurred. Please try again or contact us by phone.",
+    "validation": { "nameMin": "Name is too short", "nameMax": "Name is too long", "phone": "Invalid phone number", "email": "Invalid email address", "service": "Choose a service", "date": "Choose a valid date", "time": "Choose a time slot", "messageMax": "Message is too long", "gdpr": "GDPR consent is required" },
+    "api": { "invalidRequest": "Invalid request", "invalidData": "Invalid data", "recaptchaFailed": "Anti-spam verification failed", "notConfigured": "The appointment system is not configured yet. Please call us or message us on WhatsApp.", "slotTaken": "This slot has just been booked by someone else. Please choose another slot.", "saveFailed": "We could not save the appointment. Please try again or call us." },
+    "email": {
+      "clinicSubject": "New appointment — {name}", "patientSubject": "We received your appointment request — JBI Smile Design", "clinicTitle": "New appointment", "clinicIntro": "You received a new request through the website.", "patientThanks": "Thank you, {name}!", "patientIntro": "We received your appointment request at <strong>JBI Smile Design</strong>. Our team will contact you shortly to confirm the exact time.", "requestDetails": "Request details", "automatic": "Sent automatically by the JBI Smile Design website.", "autoNotice": "This email is sent automatically. For urgent questions, call us or message us on WhatsApp.",
+      "labels": { "name": "Name", "phone": "Phone", "email": "Email", "service": "Service", "date": "Preferred date", "time": "Preferred time", "message": "Message", "address": "Address" },
+      "notSpecified": "not specified", "empty": "—"
+    }
+  },
+  "cookie": { "title": "Cookie settings", "text": "We use necessary cookies for the website to work and, with your consent, analytics and marketing cookies. See", "cookiePolicy": "Cookie Policy", "privacyPolicy": "Privacy Policy", "necessary": "Necessary", "necessaryText": "Required for website functionality and security.", "analytics": "Analytics", "analyticsText": "Helps us understand how the website is used.", "marketing": "Marketing", "marketingText": "Allows campaign and conversion measurement.", "acceptAll": "Accept all", "save": "Save preferences", "reject": "Reject optional", "close": "Close" },
+  "footer": { "navigation": "Navigation", "contact": "Contact", "adminLogin": "Admin login", "rights": "All rights reserved.", "developedBy": "Developed by", "privacy": "Privacy Policy", "cookies": "Cookie Policy", "terms": "Terms and conditions" },
+  "loading": { "subtitle": "Premium dentistry · Chisinau" },
+  "legal": {
+    "notice": "Informational material prepared for legal review before publication.",
+    "lastUpdated": "Last updated: April 30, 2026",
+    "pages": {
+      "privacy-policy": {
+        "title": "Privacy Policy",
+        "description": "How we collect, use and protect personal data sent to JBI Smile Design.",
+        "sections": [
+          { "title": "Who we are", "body": "JBI Smile Design is a dental clinic in Chisinau. Data sent through the website is used to contact patients and manage appointment requests." },
+          { "title": "Data collected", "body": "We may collect name, phone, email, desired service, preferred date and time, message content and minimum technical data needed for anti-spam protection." },
+          { "title": "Purpose of processing", "body": "We use the data to answer requests, confirm appointments and improve communication with patients." },
+          { "title": "Your rights", "body": "You can request access, correction or deletion of your personal data by contacting the clinic email address." }
+        ]
+      },
+      "cookie-policy": {
+        "title": "Cookie Policy",
+        "description": "Information about necessary, analytics and marketing cookies used on the website.",
+        "sections": [
+          { "title": "What cookies are", "body": "Cookies are small files saved in the browser to store preferences and help the website work correctly." },
+          { "title": "Necessary cookies", "body": "These are used for basic website functionality, security and remembering consent preferences." },
+          { "title": "Analytics and marketing", "body": "These categories are enabled only with your consent and may be used to measure performance and campaigns." },
+          { "title": "Changing preferences", "body": "You can clear preferences in your browser or request a reset at any time." }
+        ]
+      },
+      "termeni-conditii": {
+        "title": "Terms and conditions",
+        "description": "General terms for using the JBI Smile Design website.",
+        "sections": [
+          { "title": "Website use", "body": "The website provides information about the clinic and allows sending an appointment request. The information does not replace a medical consultation." },
+          { "title": "Appointments", "body": "A request sent through the form is confirmed only after phone or message contact from the clinic team." },
+          { "title": "Content", "body": "Texts, images and brand elements belong to JBI Smile Design or its partners and may not be reused without permission." },
+          { "title": "Limitations", "body": "We aim to keep information accurate, but schedule, service or availability changes may occur." }
+        ]
+      }
+    }
+  }
+}

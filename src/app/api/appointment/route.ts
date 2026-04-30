@@ -2,23 +2,40 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendAppointmentEmails } from "@/lib/resend";
 import { verifyRecaptcha } from "@/lib/recaptcha";
-import { appointmentSchema } from "@/lib/validations";
+import { createAppointmentSchema, type AppointmentValidationMessages } from "@/lib/validations";
 import { isSlotAvailable } from "@/lib/availability";
+import { getMessagesForLocale } from "@/lib/i18n-server";
+import { isLocale, routing, type Locale } from "@/i18n/routing";
+import { createGoogleCalendarEvent, isGoogleCalendarConfigured } from "@/lib/google-calendar";
 
 export const runtime = "nodejs";
+
+function bodyLocale(body: unknown): Locale {
+  if (body && typeof body === "object" && "locale" in body) {
+    const value = (body as { locale?: unknown }).locale;
+    if (typeof value === "string" && isLocale(value)) return value;
+  }
+
+  return routing.defaultLocale;
+}
 
 export async function POST(req: Request) {
   let body: unknown;
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json({ error: "Cerere invalidă" }, { status: 400 });
+    const messages = await getMessagesForLocale();
+    return NextResponse.json({ error: messages.appointment.api.invalidRequest }, { status: 400 });
   }
 
-  const parsed = appointmentSchema.safeParse(body);
+  const locale = bodyLocale(body);
+  const messages = await getMessagesForLocale(locale);
+  const schema = createAppointmentSchema(messages.appointment.validation as AppointmentValidationMessages);
+  const parsed = schema.safeParse(body);
+
   if (!parsed.success) {
     return NextResponse.json(
-      { error: "Date invalide", issues: parsed.error.flatten() },
+      { error: messages.appointment.api.invalidData, issues: parsed.error.flatten() },
       { status: 422 },
     );
   }
@@ -27,33 +44,19 @@ export async function POST(req: Request) {
 
   const ok = await verifyRecaptcha(data.recaptchaToken);
   if (!ok) {
-    return NextResponse.json({ error: "Verificare anti-spam eșuată" }, { status: 403 });
+    return NextResponse.json({ error: messages.appointment.api.recaptchaFailed }, { status: 403 });
   }
 
   if (!process.env.DATABASE_URL) {
-    return NextResponse.json(
-      {
-        error:
-          "Sistemul de programări nu este încă configurat. Te rugăm să ne suni sau să ne scrii pe WhatsApp.",
-      },
-      { status: 503 },
-    );
+    return NextResponse.json({ error: messages.appointment.api.notConfigured }, { status: 503 });
   }
 
-  // Verificare server-side: slot încă disponibil? (anti-race-condition)
   const stillAvailable = await isSlotAvailable(data.preferredDate, data.preferredTime);
   if (!stillAvailable) {
-    return NextResponse.json(
-      {
-        error:
-          "Acest interval tocmai a fost rezervat de altcineva. Te rugăm să alegi un alt interval.",
-      },
-      { status: 409 },
-    );
+    return NextResponse.json({ error: messages.appointment.api.slotTaken }, { status: 409 });
   }
 
   try {
-    // Stocăm preferredDate ca dată locală (00:00). Ora rămâne separat.
     const dateOnly = new Date(`${data.preferredDate}T00:00:00`);
 
     const appointment = await prisma.appointment.create({
@@ -68,7 +71,20 @@ export async function POST(req: Request) {
       },
     });
 
-    // Trimitem emailurile dar nu blocăm răspunsul dacă eșuează.
+    if (isGoogleCalendarConfigured()) {
+      try {
+        const googleEventId = await createGoogleCalendarEvent(appointment);
+        if (googleEventId) {
+          await prisma.appointment.update({
+            where: { id: appointment.id },
+            data: { googleEventId },
+          });
+        }
+      } catch (err) {
+        console.error("[appointment] calendar sync failed:", err);
+      }
+    }
+
     try {
       await sendAppointmentEmails({
         fullName: appointment.fullName,
@@ -78,6 +94,7 @@ export async function POST(req: Request) {
         preferredDate: appointment.preferredDate,
         preferredTime: appointment.preferredTime,
         message: appointment.message,
+        locale,
       });
     } catch (err) {
       console.error("[appointment] email send failed:", err);
@@ -86,9 +103,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, id: appointment.id }, { status: 201 });
   } catch (err) {
     console.error("[appointment] DB error:", err);
-    return NextResponse.json(
-      { error: "Nu am putut salva programarea. Încearcă din nou sau sună-ne." },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: messages.appointment.api.saveFailed }, { status: 500 });
   }
 }

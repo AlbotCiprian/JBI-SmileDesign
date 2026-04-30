@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { reviews } from "@/lib/data";
+import type { ReviewMessage } from "@/i18n/messages";
 
 export function GoogleReviewsSection() {
+  const t = useTranslations("reviews");
+  const reviews = t.raw("items") as ReviewMessage[];
   const [index, setIndex] = useState(0);
   const total = reviews.length;
   const next = () => setIndex((i) => (i + 1) % total);
@@ -16,12 +19,9 @@ export function GoogleReviewsSection() {
     <section id="recenzii" className="relative bg-white py-16 sm:py-28">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow">Recenzii</span>
-          <h2 className="section-title mt-4">Ce spun pacienții noștri</h2>
-          <p className="mt-4 text-base text-jbi-navy/65 sm:text-lg">
-            Pacienții noștri apreciază profesionalismul, comunicarea și confortul
-            experienței în clinică.
-          </p>
+          <span className="eyebrow">{t("eyebrow")}</span>
+          <h2 className="section-title mt-4">{t("title")}</h2>
+          <p className="mt-4 text-base text-jbi-navy/65 sm:text-lg">{t("description")}</p>
         </div>
 
         <div className="mx-auto mt-14 max-w-3xl">
@@ -45,12 +45,12 @@ export function GoogleReviewsSection() {
                   &ldquo;{current.text}&rdquo;
                 </p>
                 <div className="mt-8 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-jbi-blue text-white font-semibold">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-jbi-blue font-semibold text-white">
                     {current.initials}
                   </div>
                   <div>
                     <p className="font-semibold text-jbi-navy">{current.name}</p>
-                    <p className="text-xs text-jbi-navy/50">Recenzie Google</p>
+                    <p className="text-xs text-jbi-navy/50">{t("googleReview")}</p>
                   </div>
                 </div>
               </motion.div>
@@ -62,7 +62,7 @@ export function GoogleReviewsSection() {
                   <button
                     key={i}
                     onClick={() => setIndex(i)}
-                    aria-label={`Recenzia ${i + 1}`}
+                    aria-label={t("reviewLabel", { index: i + 1 })}
                     className={`h-2 rounded-full transition-all ${
                       i === index ? "w-8 bg-jbi-blue" : "w-2 bg-jbi-navy/15"
                     }`}
@@ -72,14 +72,14 @@ export function GoogleReviewsSection() {
               <div className="flex gap-2">
                 <button
                   onClick={prev}
-                  aria-label="Precedenta"
+                  aria-label={t("previous")}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-jbi-navy/10 bg-white text-jbi-navy transition-colors hover:bg-jbi-soft"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={next}
-                  aria-label="Următoarea"
+                  aria-label={t("next")}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-jbi-navy/10 bg-white text-jbi-navy transition-colors hover:bg-jbi-soft"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -95,7 +95,7 @@ export function GoogleReviewsSection() {
               rel="noopener noreferrer"
               className="btn-secondary"
             >
-              Lasă o recenzie pe Google
+              {t("leaveReview")}
             </a>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { AppointmentsTable } from "./_components/AppointmentsTable";
+import { PasswordChangeForm } from "./_components/PasswordChangeForm";
 import { Calendar, Clock, CheckCircle2, XCircle } from "lucide-react";
 
 export const dynamic = "force-dynamic";
@@ -62,6 +63,8 @@ export default async function AdminDashboardPage() {
         </div>
         <AppointmentsTable initialData={JSON.parse(JSON.stringify(appointments))} />
       </section>
+
+      <PasswordChangeForm />
     </div>
   );
 }

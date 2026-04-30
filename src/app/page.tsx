@@ -1,33 +1,27 @@
-import { LoadingScreen } from "@/components/LoadingScreen";
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { AboutClinic } from "@/components/AboutClinic";
-import { TeamTrust } from "@/components/TeamTrust";
-import { ProcessSteps } from "@/components/ProcessSteps";
-import { VideoSection } from "@/components/VideoSection";
-import { GoogleReviewsSection } from "@/components/GoogleReviewsSection";
-import { ContactSection } from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
-import { CookieConsent } from "@/components/CookieConsent";
+import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { HomePageContent } from "@/components/HomePageContent";
+import messages from "../../messages/ro.json";
 
-export default function HomePage() {
+export const metadata: Metadata = {
+  title: messages.metadata.title,
+  description: messages.metadata.description,
+  keywords: messages.metadata.keywords,
+  alternates: {
+    canonical: "/",
+    languages: {
+      ro: "/",
+      en: "/en",
+      ru: "/ru",
+      "x-default": "/",
+    },
+  },
+};
+
+export default function RootHomePage() {
   return (
-    <>
-      <LoadingScreen />
-      <Header />
-      <main id="acasa">
-        <Hero />
-        <Services />
-        <AboutClinic />
-        <TeamTrust />
-        <ProcessSteps />
-        <VideoSection />
-        <GoogleReviewsSection />
-        <ContactSection />
-      </main>
-      <Footer />
-      <CookieConsent />
-    </>
+    <NextIntlClientProvider locale="ro" messages={messages}>
+      <HomePageContent />
+    </NextIntlClientProvider>
   );
 }

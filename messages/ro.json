@@ -1,0 +1,289 @@
+{
+  "metadata": {
+    "title": "JBI Smile Design | Clinica stomatologica in Chisinau",
+    "description": "Clinica stomatologica moderna in Chisinau. Terapie dentara, endodontie, ortodontie, implantologie, protetica si estetica dentara.",
+    "ogDescription": "Servicii stomatologice complete in Chisinau. Programari rapide, comunicare RO / EN / RU.",
+    "keywords": ["stomatolog Chisinau", "clinica stomatologica", "implant dentar", "ortodontie Chisinau", "estetica dentara", "JBI Smile Design"]
+  },
+  "clinic": {
+    "name": "JBI Smile Design",
+    "tagline": "Zambetul tau, creat cu grija si precizie",
+    "shortDescription": "Clinica stomatologica moderna in Chisinau, cu servicii complete, comunicare clara si tratamente personalizate pentru fiecare pacient.",
+    "footerDescription": "Clinica stomatologica moderna in Chisinau. Tratamente complete, comunicare clara si o experienta confortabila pentru fiecare pacient.",
+    "addressFull": "Grenoble 257, Chisinau, Moldova, 2072",
+    "addressStreet": "Grenoble 257",
+    "addressCity": "Chisinau",
+    "languages": "Romana · Engleza · Rusa",
+    "whatsappText": "Buna ziua! As dori sa programez o consultatie la JBI Smile Design."
+  },
+  "nav": {
+    "items": [
+      { "href": "#acasa", "label": "Acasa" },
+      { "href": "#servicii", "label": "Servicii" },
+      { "href": "#despre", "label": "Despre noi" },
+      { "href": "#echipa", "label": "Echipa" },
+      { "href": "#recenzii", "label": "Recenzii" },
+      { "href": "#video", "label": "Video" },
+      { "href": "#contact", "label": "Contact" }
+    ],
+    "book": "Programeaza-te",
+    "bookConsultation": "Programeaza o consultatie",
+    "callNow": "Suna acum",
+    "call": "Suna",
+    "menu": "Meniu",
+    "openMenu": "Deschide meniul",
+    "closeMenu": "Inchide meniul",
+    "whatsapp": "Scrie pe WhatsApp",
+    "language": "Limba"
+  },
+  "hero": {
+    "eyebrow": "Clinica stomatologica · Chisinau",
+    "rating": "Pacienti multumiti, comunicare clara si confort la fiecare vizita.",
+    "reviews": "Recenzii Google · JBI Smile Design",
+    "quickContact": "Contact rapid",
+    "imageAlt": "Receptia clinicii JBI Smile Design",
+    "trustBadges": ["Grenoble 257, Chisinau", "RO / EN / RU", "Programari rapide", "Servicii complete"]
+  },
+  "services": {
+    "eyebrow": "Servicii",
+    "title": "Tratamente complete pentru intreaga familie",
+    "description": "De la preventie si tratamente de baza, pana la implantologie si estetica dentara — totul intr-un singur loc, cu plan personalizat pentru fiecare pacient.",
+    "schedule": "Programeaza-te",
+    "other": "Altceva / Nu sunt sigur",
+    "items": [
+      { "slug": "terapie-dentara", "title": "Terapie dentara", "short": "Tratamentul cariilor", "description": "Diagnostic precis al cariilor si restaurari estetice durabile, cu materiale de inalta calitate." },
+      { "slug": "endodontie", "title": "Endodontie", "short": "Tratament de canal", "description": "Tratamente endodontice moderne, sub microscop, pentru pastrarea dintelui natural." },
+      { "slug": "ortodontie", "title": "Ortodontie", "short": "Aparat dentar", "description": "Aparate dentare fixe si mobile, plus alinieri invizibile pentru un zambet perfect." },
+      { "slug": "implantologie", "title": "Implantologie dentara", "short": "Implant + coroana", "description": "Solutii complete de implantare cu planificare digitala si recuperare confortabila." },
+      { "slug": "protetica", "title": "Protetica dentara", "short": "Coroane, punti, fatete", "description": "Restaurari protetice estetice si functionale, realizate cu tehnologii moderne." },
+      { "slug": "parodontologie", "title": "Tratamente parodontale", "short": "Sanatatea gingiilor", "description": "Preventie si tratament al bolilor parodontale pentru gingii sanatoase pe termen lung." },
+      { "slug": "pediatrica", "title": "Stomatologie pediatrica", "short": "Pentru cei mici", "description": "Abordare blanda si prietenoasa pentru copii, intr-un mediu calm si sigur." },
+      { "slug": "estetica", "title": "Estetica dentara", "short": "Albire & fatete", "description": "Albire profesionala, fatete ceramice si tratamente estetice pentru un zambet luminos." }
+    ]
+  },
+  "about": {
+    "eyebrow": "Despre clinica",
+    "title": "Stomatologie moderna, gandita in jurul pacientului",
+    "text": "JBI Smile Design este o clinica stomatologica din Chisinau, creata pentru pacientii care cauta tratamente moderne, comunicare clara si o experienta medicala confortabila. Punem accent pe diagnostic corect, tratamente personalizate si relatie de incredere cu fiecare pacient.",
+    "imageAlt": "Interior clinica JBI Smile Design",
+    "focusNumber": "100%",
+    "focusLabel": "Focus pe pacient",
+    "features": [
+      { "title": "Abordare personalizata", "text": "Plan adaptat fiecarui pacient." },
+      { "title": "Mediu modern si curat", "text": "Standarde inalte de igiena." },
+      { "title": "Comunicare RO / EN / RU", "text": "Vorbim limba ta." },
+      { "title": "Solutii pentru familie", "text": "De la copii la adulti." }
+    ]
+  },
+  "team": {
+    "eyebrow": "Echipa & incredere",
+    "title": "O echipa aproape de pacient",
+    "text": "La JBI Smile Design, pacientul primeste explicatii clare, tratament atent si suport la fiecare etapa. Ne dorim ca fiecare vizita sa fie o experienta linistita si clara — de la diagnostic, pana la recomandarile de ingrijire.",
+    "imageAlt": "Echipa JBI Smile Design la receptie",
+    "points": [
+      { "title": "Comunicare clara", "text": "Explicatii pe intelesul tau, la fiecare etapa." },
+      { "title": "Grija fata de confort", "text": "Tehnici moderne pentru tratamente fara disconfort." },
+      { "title": "Plan personalizat", "text": "Plan de tratament adaptat nevoilor tale." },
+      { "title": "Adulti si copii", "text": "Tratamente pentru intreaga familie." }
+    ]
+  },
+  "process": {
+    "eyebrow": "Procesul nostru",
+    "title": "Etapele unei consultatii",
+    "description": "De la primul contact pana la recomandarile finale, fiecare etapa este gandita sa fie clara, confortabila si transparenta.",
+    "steps": [
+      { "n": 1, "title": "Contact si programare", "text": "Ne scrii sau ne suni — alegem impreuna o ora potrivita." },
+      { "n": 2, "title": "Consultatie initiala", "text": "Discutam despre nevoi, asteptari si istoricul tau dentar." },
+      { "n": 3, "title": "Diagnostic si analiza", "text": "Examinare clinica si imagistica pentru un diagnostic exact." },
+      { "n": 4, "title": "Plan de tratament", "text": "Iti prezentam un plan personalizat, cu optiuni si costuri clare." },
+      { "n": 5, "title": "Tratament", "text": "Etape confortabile, cu explicatii pe tot parcursul." },
+      { "n": 6, "title": "Recomandari si monitorizare", "text": "Indicatii de ingrijire si controale periodice pentru rezultate de durata." }
+    ]
+  },
+  "video": {
+    "eyebrow": "Video",
+    "title": "Vezi atmosfera din JBI Smile Design",
+    "description": "O privire scurta in clinica — receptie, cabinete moderne si echipa care iti va fi alaturi pe tot parcursul tratamentului.",
+    "cta": "Vezi pagina noastra Facebook",
+    "alt": "Reel JBI Smile Design"
+  },
+  "reviews": {
+    "eyebrow": "Recenzii",
+    "title": "Ce spun pacientii nostri",
+    "description": "Pacientii nostri apreciaza profesionalismul, comunicarea si confortul experientei in clinica.",
+    "googleReview": "Recenzie Google",
+    "leaveReview": "Lasa o recenzie pe Google",
+    "previous": "Precedenta",
+    "next": "Urmatoarea",
+    "reviewLabel": "Recenzia {index}",
+    "items": [
+      { "name": "Ana M.", "rating": 5, "text": "Echipa super profesionista, clinica e impecabila si totul a decurs fara durere. Recomand cu drag!", "initials": "AM" },
+      { "name": "Victor C.", "rating": 5, "text": "Cea mai buna experienta pe care am avut-o la stomatolog. Explicatii clare si rezultat excelent.", "initials": "VC" },
+      { "name": "Elena P.", "rating": 5, "text": "Atmosfera calda, personal atent. Copilul meu a fost relaxat de la prima vizita.", "initials": "EP" },
+      { "name": "Dmitri R.", "rating": 5, "text": "Foarte multumit de tratamentul de implantologie. Profesionalism la cel mai inalt nivel.", "initials": "DR" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Vino in clinica sau scrie-ne",
+    "description": "Suntem la doar un mesaj distanta. Echipa noastra raspunde rapid si te ajuta sa gasesti cel mai potrivit moment pentru programare.",
+    "address": "Adresa",
+    "phone": "Telefon",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "viewMap": "Vezi pe harta",
+    "sendEmail": "Trimite email",
+    "spokenLanguages": "Limbi vorbite",
+    "mapTitle": "Harta JBI Smile Design",
+    "appointmentsEyebrow": "Programari",
+    "appointmentsTitle": "Programeaza o consultatie",
+    "appointmentsText": "Completeaza formularul si echipa noastra te va contacta in cel mai scurt timp pentru a confirma ora exacta. Preferi prin telefon? Suntem disponibili pe WhatsApp si telefon.",
+    "scheduleTitle": "Program clinica",
+    "scheduleText": "Programarile se confirma in zilele lucratoare. In weekend raspundem de luni dimineata."
+  },
+  "appointment": {
+    "fields": {
+      "fullName": "Nume complet",
+      "phone": "Telefon",
+      "email": "Email",
+      "service": "Serviciu dorit",
+      "date": "Data preferata",
+      "time": "Ora preferata",
+      "message": "Mesaj"
+    },
+    "placeholders": {
+      "fullName": "ex. Ana Popescu",
+      "phone": "+373 ...",
+      "email": "email@exemplu.com",
+      "selectService": "Alege un serviciu",
+      "message": "Detalii suplimentare, dureri, intrebari..."
+    },
+    "hints": {
+      "email": "Optional — pentru confirmarea programarii",
+      "message": "Optional"
+    },
+    "gdpr": "Sunt de acord cu prelucrarea datelor personale conform",
+    "privacyPolicy": "Politicii de Confidentialitate",
+    "submit": "Trimite programarea",
+    "submitting": "Se trimite...",
+    "afterSubmit": "Programarea va fi confirmata telefonic de echipa noastra.",
+    "successTitle": "Multumim! Cererea ta a fost trimisa.",
+    "successText": "Echipa JBI Smile Design te va contacta in cel mai scurt timp pentru a confirma ora exacta a programarii.",
+    "another": "Trimite alta cerere",
+    "slotPickDate": "Alege mai intai data, apoi vei vedea intervalele orare disponibile.",
+    "slotLoading": "Verificam disponibilitatea...",
+    "slotError": "Nu am putut verifica disponibilitatea. Reincearca peste cateva secunde.",
+    "closedFallback": "Clinica este inchisa in aceasta zi",
+    "noSlots": "Nu exista intervale orare disponibile pentru aceasta zi.",
+    "unavailableLegend": "Indisponibil — interval ocupat sau prea apropiat de alta programare",
+    "networkError": "Nu ne-am putut conecta la server. Incearca din nou.",
+    "genericError": "A aparut o eroare. Te rugam sa incerci din nou sau sa ne contactezi telefonic.",
+    "validation": {
+      "nameMin": "Numele este prea scurt",
+      "nameMax": "Numele este prea lung",
+      "phone": "Numar de telefon invalid",
+      "email": "Adresa de email invalida",
+      "service": "Alege un serviciu",
+      "date": "Alege o data valida",
+      "time": "Alege un interval orar",
+      "messageMax": "Mesajul este prea lung",
+      "gdpr": "Acceptul GDPR este obligatoriu"
+    },
+    "api": {
+      "invalidRequest": "Cerere invalida",
+      "invalidData": "Date invalide",
+      "recaptchaFailed": "Verificare anti-spam esuata",
+      "notConfigured": "Sistemul de programari nu este inca configurat. Te rugam sa ne suni sau sa ne scrii pe WhatsApp.",
+      "slotTaken": "Acest interval tocmai a fost rezervat de altcineva. Te rugam sa alegi un alt interval.",
+      "saveFailed": "Nu am putut salva programarea. Incearca din nou sau suna-ne."
+    },
+    "email": {
+      "clinicSubject": "Programare noua — {name}",
+      "patientSubject": "Am primit solicitarea ta de programare — JBI Smile Design",
+      "clinicTitle": "Programare noua",
+      "clinicIntro": "Ai primit o noua cerere prin website.",
+      "patientThanks": "Multumim, {name}!",
+      "patientIntro": "Am primit cererea ta de programare la <strong>JBI Smile Design</strong>. Echipa noastra te va contacta in cel mai scurt timp pentru a confirma ora exacta.",
+      "requestDetails": "Detalii cerere",
+      "automatic": "Trimis automat de website-ul JBI Smile Design.",
+      "autoNotice": "Acest email este trimis automat. Pentru intrebari urgente, suna-ne sau scrie-ne pe WhatsApp.",
+      "labels": {
+        "name": "Nume",
+        "phone": "Telefon",
+        "email": "Email",
+        "service": "Serviciu",
+        "date": "Data preferata",
+        "time": "Ora preferata",
+        "message": "Mesaj",
+        "address": "Adresa"
+      },
+      "notSpecified": "neprecizat",
+      "empty": "—"
+    }
+  },
+  "cookie": {
+    "title": "Setari cookie",
+    "text": "Folosim cookie-uri necesare pentru functionarea site-ului si, cu acordul tau, cookie-uri pentru analytics si marketing. Vezi",
+    "cookiePolicy": "Politica Cookie",
+    "privacyPolicy": "Politica de Confidentialitate",
+    "necessary": "Necesare",
+    "necessaryText": "Obligatorii pentru functionarea site-ului si securitate.",
+    "analytics": "Analytics",
+    "analyticsText": "Ne ajuta sa intelegem cum este folosit site-ul.",
+    "marketing": "Marketing",
+    "marketingText": "Permite masurarea campaniilor si conversiilor.",
+    "acceptAll": "Accepta toate",
+    "save": "Salveaza preferintele",
+    "reject": "Refuza optionale",
+    "close": "Inchide"
+  },
+  "footer": {
+    "navigation": "Navigare",
+    "contact": "Contact",
+    "adminLogin": "Admin login",
+    "rights": "Toate drepturile rezervate.",
+    "developedBy": "Developed by",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "terms": "Termeni si conditii"
+  },
+  "loading": {
+    "subtitle": "Stomatologie premium · Chisinau"
+  },
+  "legal": {
+    "notice": "Material informativ pregatit pentru revizie juridica inainte de publicare.",
+    "lastUpdated": "Ultima actualizare: 30 aprilie 2026",
+    "pages": {
+      "privacy-policy": {
+        "title": "Privacy Policy",
+        "description": "Cum colectam, folosim si protejam datele personale transmise catre JBI Smile Design.",
+        "sections": [
+          { "title": "Cine suntem", "body": "JBI Smile Design este o clinica stomatologica din Chisinau. Datele transmise prin website sunt folosite pentru contactarea pacientilor si gestionarea solicitarilor de programare." },
+          { "title": "Date colectate", "body": "Putem colecta nume, telefon, email, serviciul dorit, data si ora preferata, mesajul transmis si date tehnice minime necesare protectiei anti-spam." },
+          { "title": "Scopul prelucrarii", "body": "Folosim datele pentru a raspunde solicitarilor, pentru a confirma programari si pentru a imbunatati comunicarea cu pacientii." },
+          { "title": "Drepturile tale", "body": "Poti solicita acces, corectare sau stergerea datelor personale contactandu-ne la adresa de email a clinicii." }
+        ]
+      },
+      "cookie-policy": {
+        "title": "Cookie Policy",
+        "description": "Informatii despre cookie-urile necesare, analytics si marketing folosite pe website.",
+        "sections": [
+          { "title": "Ce sunt cookie-urile", "body": "Cookie-urile sunt fisiere mici salvate in browser pentru a pastra preferinte si pentru a ajuta site-ul sa functioneze corect." },
+          { "title": "Cookie-uri necesare", "body": "Acestea sunt folosite pentru functionarea de baza a site-ului, securitate si memorarea preferintelor de consimtamant." },
+          { "title": "Analytics si marketing", "body": "Aceste categorii sunt activate doar cu acordul tau si pot fi folosite pentru masurarea performantei si a campaniilor." },
+          { "title": "Schimbarea preferintelor", "body": "Poti sterge preferintele din browser sau poti solicita resetarea lor in orice moment." }
+        ]
+      },
+      "termeni-conditii": {
+        "title": "Termeni si conditii",
+        "description": "Conditiile generale de utilizare a website-ului JBI Smile Design.",
+        "sections": [
+          { "title": "Utilizarea site-ului", "body": "Website-ul ofera informatii despre clinica si permite trimiterea unei cereri de programare. Informatiile nu inlocuiesc consultatia medicala." },
+          { "title": "Programari", "body": "O solicitare trimisa prin formular este confirmata doar dupa contactul telefonic sau prin mesaj din partea echipei clinicii." },
+          { "title": "Continut", "body": "Textele, imaginile si elementele de brand apartin JBI Smile Design sau partenerilor sai si nu pot fi reutilizate fara acord." },
+          { "title": "Limitari", "body": "Ne straduim sa mentinem informatiile corecte, dar pot aparea modificari de program, servicii sau disponibilitate." }
+        ]
+      }
+    }
+  }
+}

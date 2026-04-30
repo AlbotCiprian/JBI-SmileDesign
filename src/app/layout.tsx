@@ -1,37 +1,40 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { getLocale } from "next-intl/server";
+import { AnalyticsGate } from "@/components/AnalyticsGate";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-inter",
   display: "swap",
 });
 
 const playfair = Playfair_Display({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-playfair",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "JBI Smile Design | Clinică stomatologică în Chișinău",
+  metadataBase: new URL("https://jbismiledesign.md"),
+  title: "JBI Smile Design | Clinica stomatologica in Chisinau",
   description:
-    "Clinică stomatologică modernă în Chișinău. Terapie dentară, endodonție, ortodonție, implantologie, protetică și estetică dentară.",
+    "Clinica stomatologica moderna in Chisinau. Terapie dentara, endodontie, ortodontie, implantologie, protetica si estetica dentara.",
   applicationName: "JBI Smile Design",
   authors: [{ name: "JBI Smile Design" }],
   keywords: [
-    "stomatolog Chișinău",
-    "clinică stomatologică",
+    "stomatolog Chisinau",
+    "clinica stomatologica",
     "implant dentar",
-    "ortodonție Chișinău",
-    "estetică dentară",
+    "ortodontie Chisinau",
+    "estetica dentara",
     "JBI Smile Design",
   ],
   openGraph: {
-    title: "JBI Smile Design | Clinică stomatologică în Chișinău",
+    title: "JBI Smile Design | Clinica stomatologica in Chisinau",
     description:
-      "Servicii stomatologice complete în Chișinău. Programări rapide, comunicare RO / EN / RU.",
+      "Servicii stomatologice complete in Chisinau. Programari rapide, comunicare RO / EN / RU.",
     url: "https://jbismiledesign.md",
     siteName: "JBI Smile Design",
     locale: "ro_RO",
@@ -50,10 +53,15 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
+
   return (
-    <html lang="ro" className={`${inter.variable} ${playfair.variable}`}>
-      <body>{children}</body>
+    <html lang={locale} className={`${inter.variable} ${playfair.variable}`}>
+      <body>
+        {children}
+        <AnalyticsGate />
+      </body>
     </html>
   );
 }
