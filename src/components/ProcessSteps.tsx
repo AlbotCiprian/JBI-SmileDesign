@@ -20,7 +20,11 @@ export function ProcessSteps() {
         </div>
 
         <div className="relative mt-16">
-          <div className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-jbi-blue/30 to-transparent lg:block" />
+          {/* Desktop horizontal line — punctată, mai vizibilă, cu glow subtil */}
+          <div className="absolute inset-x-0 top-6 hidden lg:block">
+            <div className="mx-auto h-px w-[85%] bg-[linear-gradient(to_right,transparent,rgba(0,91,187,0.5)_15%,rgba(22,135,255,0.5)_50%,rgba(0,91,187,0.5)_85%,transparent)]" />
+            <div className="mx-auto h-[2px] w-[60%] -translate-y-px bg-gradient-to-r from-transparent via-jbi-electric/40 to-transparent blur-sm" />
+          </div>
 
           <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-6 lg:gap-4">
             {processSteps.map((step, i) => (

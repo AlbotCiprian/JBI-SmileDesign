@@ -42,7 +42,12 @@
     "reviews": "Отзывы Google · JBI Smile Design",
     "quickContact": "Быстрый контакт",
     "imageAlt": "Ресепшн клиники JBI Smile Design",
-    "trustBadges": ["Grenoble 257, Кишинев", "RO / EN / RU", "Быстрая запись", "Полный спектр услуг"]
+    "trustBadges": ["Grenoble 257, Кишинев", "RO / EN / RU", "Быстрая запись", "Полный спектр услуг"],
+    "trustStrip": {
+      "services": "8+ стоматологических услуг",
+      "experience": "Внимательная и опытная команда",
+      "modern": "Современные технологии"
+    }
   },
   "services": {
     "eyebrow": "Услуги",
@@ -68,6 +73,11 @@
     "imageAlt": "Интерьер клиники JBI Smile Design",
     "focusNumber": "100%",
     "focusLabel": "Фокус на пациенте",
+    "stats": {
+      "services": "Услуги",
+      "languages": "Языки",
+      "focus": "Фокус на пациенте"
+    },
     "features": [
       { "title": "Индивидуальный подход", "text": "План, адаптированный к каждому пациенту." },
       { "title": "Современная и чистая среда", "text": "Высокие стандарты гигиены." },
@@ -116,6 +126,7 @@
     "previous": "Предыдущий",
     "next": "Следующий",
     "reviewLabel": "Отзыв {index}",
+    "ratingSummary": "{count} отзывов в Google",
     "items": [
       { "name": "Ana M.", "rating": 5, "text": "Очень профессиональная команда, клиника безупречная, все прошло без боли. Рекомендую!", "initials": "AM" },
       { "name": "Victor C.", "rating": 5, "text": "Лучший опыт у стоматолога. Понятные объяснения и отличный результат.", "initials": "VC" },

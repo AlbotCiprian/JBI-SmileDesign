@@ -26,6 +26,7 @@ import {
 } from "@/lib/validations";
 import { cn } from "@/lib/cn";
 import { useRecaptchaScript, executeRecaptcha } from "@/lib/recaptcha-client";
+import { BorderBeam } from "./ui/BorderBeam";
 import type { ServiceMessage } from "@/i18n/messages";
 import { localizedHref, type Locale } from "@/i18n/routing";
 
@@ -147,7 +148,9 @@ export function AppointmentForm() {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="rounded-3xl border border-jbi-navy/5 bg-white p-5 shadow-soft sm:rounded-[2rem] sm:p-10">
+    <div className="relative overflow-hidden rounded-3xl border border-jbi-navy/5 bg-white p-5 shadow-soft sm:rounded-[2rem] sm:p-10">
+      <BorderBeam size={250} duration={10} delay={0} />
+      <BorderBeam size={250} duration={10} delay={5} colorFrom="#D8C3A5" colorTo="#1687FF" />
       <AnimatePresence mode="wait">
         {state.kind === "success" ? (
           <motion.div

@@ -32,9 +32,18 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "border-beam": {
+          "100%": { "offset-distance": "100%" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(calc(-100% - var(--gap, 1.5rem)))" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
+        "border-beam": "border-beam var(--duration, 8s) infinite linear",
+        marquee: "marquee var(--duration, 30s) linear infinite",
       },
     },
   },

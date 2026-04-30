@@ -42,7 +42,12 @@
     "reviews": "Google reviews · JBI Smile Design",
     "quickContact": "Quick contact",
     "imageAlt": "JBI Smile Design clinic reception",
-    "trustBadges": ["Grenoble 257, Chisinau", "RO / EN / RU", "Fast appointments", "Complete services"]
+    "trustBadges": ["Grenoble 257, Chisinau", "RO / EN / RU", "Fast appointments", "Complete services"],
+    "trustStrip": {
+      "services": "8+ dental services",
+      "experience": "Caring, experienced team",
+      "modern": "Modern technology"
+    }
   },
   "services": {
     "eyebrow": "Services",
@@ -68,6 +73,11 @@
     "imageAlt": "JBI Smile Design clinic interior",
     "focusNumber": "100%",
     "focusLabel": "Patient focus",
+    "stats": {
+      "services": "Services",
+      "languages": "Spoken languages",
+      "focus": "Patient focus"
+    },
     "features": [
       { "title": "Personalized approach", "text": "A plan tailored to every patient." },
       { "title": "Modern and clean space", "text": "High hygiene standards." },
@@ -116,6 +126,7 @@
     "previous": "Previous",
     "next": "Next",
     "reviewLabel": "Review {index}",
+    "ratingSummary": "{count} Google reviews",
     "items": [
       { "name": "Ana M.", "rating": 5, "text": "A very professional team, an impeccable clinic and everything went pain-free. Highly recommended!", "initials": "AM" },
       { "name": "Victor C.", "rating": 5, "text": "The best dental experience I have had. Clear explanations and excellent results.", "initials": "VC" },

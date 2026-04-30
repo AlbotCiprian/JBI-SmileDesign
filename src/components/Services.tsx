@@ -22,7 +22,7 @@ export function Services() {
           <p className="mt-4 text-base text-jbi-navy/65 sm:text-lg">{t("description")}</p>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-3 sm:mt-14 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => {
             const Icon = ServiceIconBySlug[s.slug];
             return (
@@ -33,9 +33,14 @@ export function Services() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
                 whileHover={{ y: -4 }}
-                className="group relative flex flex-col overflow-hidden rounded-3xl border border-jbi-navy/5 bg-white p-6 shadow-[0_2px_20px_-12px_rgba(11,31,58,0.12)] transition-shadow hover:shadow-soft"
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-jbi-navy/5 bg-white p-5 shadow-[0_2px_20px_-12px_rgba(11,31,58,0.12)] transition-shadow hover:shadow-soft sm:p-6"
               >
-                <div className="relative h-24 w-24 transition-transform duration-500 group-hover:scale-105">
+                {/* Subtle gradient overlay on hover */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-br from-jbi-soft/0 via-transparent to-jbi-soft/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:from-jbi-soft/40 group-hover:to-jbi-electric/5"
+                />
+                <div className="relative h-20 w-20 transition-transform duration-500 group-hover:scale-105 sm:h-24 sm:w-24">
                   {Icon ? <Icon className="h-full w-full" /> : null}
                 </div>
                 <h3 className="mt-5 font-display text-xl font-semibold text-jbi-navy">{s.title}</h3>

@@ -4,6 +4,10 @@ out/
 build/
 dist/
 
+# TypeScript incremental
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
 # Env — NU commit-a niciodată
 .env
 .env.local

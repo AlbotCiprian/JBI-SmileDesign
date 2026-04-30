@@ -42,7 +42,12 @@
     "reviews": "Recenzii Google · JBI Smile Design",
     "quickContact": "Contact rapid",
     "imageAlt": "Receptia clinicii JBI Smile Design",
-    "trustBadges": ["Grenoble 257, Chisinau", "RO / EN / RU", "Programari rapide", "Servicii complete"]
+    "trustBadges": ["Grenoble 257, Chisinau", "RO / EN / RU", "Programari rapide", "Servicii complete"],
+    "trustStrip": {
+      "services": "8+ servicii stomatologice",
+      "experience": "Echipa atenta si experimentata",
+      "modern": "Tehnologie moderna"
+    }
   },
   "services": {
     "eyebrow": "Servicii",
@@ -68,6 +73,11 @@
     "imageAlt": "Interior clinica JBI Smile Design",
     "focusNumber": "100%",
     "focusLabel": "Focus pe pacient",
+    "stats": {
+      "services": "Servicii",
+      "languages": "Limbi vorbite",
+      "focus": "Focus pacient"
+    },
     "features": [
       { "title": "Abordare personalizata", "text": "Plan adaptat fiecarui pacient." },
       { "title": "Mediu modern si curat", "text": "Standarde inalte de igiena." },
@@ -116,6 +126,7 @@
     "previous": "Precedenta",
     "next": "Urmatoarea",
     "reviewLabel": "Recenzia {index}",
+    "ratingSummary": "{count} recenzii pe Google",
     "items": [
       { "name": "Ana M.", "rating": 5, "text": "Echipa super profesionista, clinica e impecabila si totul a decurs fara durere. Recomand cu drag!", "initials": "AM" },
       { "name": "Victor C.", "rating": 5, "text": "Cea mai buna experienta pe care am avut-o la stomatolog. Explicatii clare si rezultat excelent.", "initials": "VC" },

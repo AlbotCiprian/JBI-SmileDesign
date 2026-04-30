@@ -22,6 +22,20 @@ export function GoogleReviewsSection() {
           <span className="eyebrow">{t("eyebrow")}</span>
           <h2 className="section-title mt-4">{t("title")}</h2>
           <p className="mt-4 text-base text-jbi-navy/65 sm:text-lg">{t("description")}</p>
+
+          {/* Rating summary — instant trust */}
+          <div className="mx-auto mt-6 inline-flex items-center gap-3 rounded-full border border-jbi-navy/5 bg-white px-4 py-2 shadow-soft">
+            <div className="flex items-center gap-1 text-jbi-champagne">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-current" />
+              ))}
+            </div>
+            <span className="text-sm font-semibold text-jbi-navy">5.0</span>
+            <span className="text-xs text-jbi-navy/50">·</span>
+            <span className="text-xs font-medium text-jbi-navy/70">
+              {t("ratingSummary", { count: reviews.length })}
+            </span>
+          </div>
         </div>
 
         <div className="mx-auto mt-14 max-w-3xl">

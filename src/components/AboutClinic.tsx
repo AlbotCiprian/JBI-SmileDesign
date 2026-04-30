@@ -51,7 +51,28 @@ export function AboutClinic() {
             <h2 className="section-title mt-4">{t("title")}</h2>
             <p className="mt-5 text-base leading-relaxed text-jbi-navy/70 sm:text-lg">{t("text")}</p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {/* Stat cards numerice — credibilitate rapidă */}
+            <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
+              {[
+                { value: "8+", label: t("stats.services") },
+                { value: "RO·EN·RU", label: t("stats.languages") },
+                { value: "100%", label: t("stats.focus") },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl border border-jbi-navy/5 bg-white p-4 text-center shadow-[0_2px_12px_-8px_rgba(11,31,58,0.1)]"
+                >
+                  <p className="font-display text-xl font-semibold text-jbi-blue sm:text-2xl">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-jbi-navy/55 sm:text-xs">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {features.map(({ title, text }, index) => {
                 const Icon = icons[index] ?? Sparkles;
                 return (

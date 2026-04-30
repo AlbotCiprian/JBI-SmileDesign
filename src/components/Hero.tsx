@@ -4,11 +4,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { MapPin, Languages, Clock, Stethoscope, Star, MessageCircle } from "lucide-react";
+import {
+  MapPin,
+  Languages,
+  Clock,
+  Stethoscope,
+  Star,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+  HeartHandshake,
+} from "lucide-react";
 import { clinic } from "@/lib/data";
 import { localizedHref, type Locale } from "@/i18n/routing";
+import { Spotlight } from "./ui/Spotlight";
+import { ShimmerButton } from "./ui/ShimmerButton";
 
 const badgeIcons = [MapPin, Languages, Clock, Stethoscope];
+
+const trustStrip = [
+  { Icon: Sparkles, key: "services" },
+  { Icon: HeartHandshake, key: "experience" },
+  { Icon: ShieldCheck, key: "modern" },
+];
 
 export function Hero() {
   const t = useTranslations();
@@ -19,6 +37,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-hero-radial pt-24 sm:pt-32 lg:pt-36">
+      <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#1687FF" />
       <div className="pointer-events-none absolute -left-20 top-32 h-72 w-72 rounded-full bg-jbi-soft blur-3xl" />
       <div className="pointer-events-none absolute -right-24 top-10 h-80 w-80 rounded-full bg-jbi-electric/10 blur-3xl" />
 
@@ -43,14 +62,23 @@ export function Hero() {
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
-            <Link href={localizedHref(locale, "#programare")} className="btn-primary">
+            <ShimmerButton href={localizedHref(locale, "#programare")}>
               {t("nav.bookConsultation")}
-            </Link>
+            </ShimmerButton>
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-secondary">
               <MessageCircle className="h-4 w-4" />
               {t("nav.whatsapp")}
             </a>
           </div>
+
+          <ul className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-jbi-navy/65 sm:text-sm">
+            {trustStrip.map(({ Icon, key }) => (
+              <li key={key} className="flex items-center gap-1.5">
+                <Icon className="h-4 w-4 text-jbi-blue" />
+                <span>{t("hero.trustStrip." + key)}</span>
+              </li>
+            ))}
+          </ul>
 
           <ul className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-4">
             {trustBadges.map((label, i) => {
