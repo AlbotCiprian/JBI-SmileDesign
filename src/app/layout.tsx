@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import { AnalyticsGate } from "@/components/AnalyticsGate";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
+
+const SITE_URL = getSiteUrl();
 
 const inter = Inter({
   subsets: ["latin", "latin-ext", "cyrillic"],
@@ -17,7 +20,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jbismiledesign.md"),
+  metadataBase: new URL(SITE_URL),
   title: "JBI Smile Design | Clinica stomatologica in Chisinau",
   description:
     "Clinica stomatologica moderna in Chisinau. Terapie dentara, endodontie, ortodontie, implantologie, protetica si estetica dentara.",
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
     title: "JBI Smile Design | Clinica stomatologica in Chisinau",
     description:
       "Servicii stomatologice complete in Chisinau. Programari rapide, comunicare RO / EN / RU.",
-    url: "https://jbismiledesign.md",
+    url: SITE_URL,
     siteName: "JBI Smile Design",
     locale: "ro_RO",
     type: "website",

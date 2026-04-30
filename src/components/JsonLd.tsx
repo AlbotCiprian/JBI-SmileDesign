@@ -1,6 +1,5 @@
 import { clinic } from "@/lib/data";
-
-const SITE_URL = "https://jbismiledesign.md";
+import { getSiteUrl } from "@/lib/site-url";
 
 /**
  * JSON-LD pentru rich results în Google.
@@ -8,6 +7,7 @@ const SITE_URL = "https://jbismiledesign.md";
  * Validează la https://validator.schema.org/ și https://search.google.com/test/rich-results
  */
 export function JsonLd() {
+  const SITE_URL = getSiteUrl();
   const data = {
     "@context": "https://schema.org",
     "@type": "Dentist",

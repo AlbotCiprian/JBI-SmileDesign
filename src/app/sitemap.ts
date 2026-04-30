@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
+import { getSiteUrl } from "@/lib/site-url";
 
-const BASE_URL = "https://jbismiledesign.md";
 const LOCALES = ["ro", "en", "ru"] as const;
 const DEFAULT_LOCALE = "ro";
 const LEGAL_SLUGS = ["privacy-policy", "cookie-policy", "termeni-conditii"];
@@ -20,26 +20,27 @@ const ROUTES: LocalizedRoute[] = [
   })),
 ];
 
-function localizedUrl(locale: string, path: string) {
+function localizedUrl(baseUrl: string, locale: string, path: string) {
   const prefix = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
-  return `${BASE_URL}${prefix}${path || ""}` || `${BASE_URL}/`;
+  return `${baseUrl}${prefix}${path || ""}` || `${baseUrl}/`;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = getSiteUrl();
   const now = new Date();
 
   return ROUTES.flatMap(({ path, changeFrequency, priority }) =>
     LOCALES.map((locale) => ({
-      url: localizedUrl(locale, path),
+      url: localizedUrl(baseUrl, locale, path),
       lastModified: now,
       changeFrequency,
       priority: locale === DEFAULT_LOCALE ? priority : Math.max(0.3, priority - 0.1),
       alternates: {
         languages: {
           ...Object.fromEntries(
-            LOCALES.map((alt) => [alt, localizedUrl(alt, path)]),
+            LOCALES.map((alt) => [alt, localizedUrl(baseUrl, alt, path)]),
           ),
-          "x-default": localizedUrl(DEFAULT_LOCALE, path),
+          "x-default": localizedUrl(baseUrl, DEFAULT_LOCALE, path),
         },
       },
     })),
